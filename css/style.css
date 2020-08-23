@@ -1,0 +1,150 @@
+.grid-container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header"
+    "navigation"
+    "main";
+}
+header {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    background-color: #7477bf;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  h1{
+    grid-area: heading;
+  }
+  
+  #memberLogin{
+    border-radius: 50%;
+    height: 50px;
+  }
+
+  #memberLoginName{
+    color: white;
+  }
+  
+  nav {
+    display: flex;
+    max-height: 100%;
+    grid-area: navigation;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #4d4b72;
+  }
+
+  .main-header{
+    grid-area: main;
+    display: grid;
+    margin: 0px auto;
+  }
+
+  #alert{ 
+    background-color: #7377bf;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .alert-banner {
+    display: flex;  
+    justify-content: space-between;
+  }
+
+  .alert-banner-close{
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding-right: 1em;
+    margin-bottom: auto;
+    margin-top: auto;
+    text-align: end;
+  }
+
+  ul{
+    text-align: center;
+  }
+
+  li{
+    list-style: none;
+    display: inline-block;
+    padding-left: 10px; 
+    padding: 5px;
+    border-radius: 20px;
+
+  }
+  li:hover {
+    background-color: #78CF82;
+    color: white;
+  }
+
+  img {
+    height: 30px;
+  }
+
+  svg{
+    overflow: visible;
+    fill: white; 
+    background-color: #7377bf; 
+    height: 50px;
+    padding: 15px;
+    border-radius: 50%;
+    margin: 20px 0 0px 50px;
+  }
+
+  #social-heading{
+    margin-bottom: 10px;
+  }
+
+  .social{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  .twitter,
+  .facebook,
+  .google{
+    border: lightgray;
+    border-style: solid;
+    border-width: 0.5px;
+    border-radius: 10px;
+    height: 115px;
+    width: 350px;
+    margin: 0 auto;
+  }
+
+ .social-title {
+    position: relative;
+    top: -90px;
+    left: 150px;
+    color: #7377bf;
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin: auto;
+  }
+
+  .social-stat{
+    position: relative;
+    top: -90px;
+    left: 150px;
+    font-size: 3.5em;
+    margin: auto;
+  }
+
+  .navImages{
+    padding: 2em;
+  }
+
+  widget-container-full, .widget-container-half {
+    width: 95vw;
+    }
