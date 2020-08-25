@@ -1,4 +1,5 @@
 .grid-container {
+    margin-left: 10px;
     max-width: 100%;
     margin: 0 auto;
     overflow-x: hidden; 
@@ -11,26 +12,17 @@
     "main";
 }
 
-.main{
-  max-width: 100%;
-  margin: 0 auto;
-  overflow-x: hidden; 
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto;
-}
-
 /* headings */
-
-h2, h3{
+h1, h2, h3{
   Padding-left: 10px;
 }
 
  /* main header */
 header {
+    display: flex;
     background-color: #7477bf;
     color: white;
-    display: flex;
+    justify-content: flex-end;
     align-items: center;
   }
   
@@ -88,7 +80,6 @@ header {
   /* OpeningSearch */
    #search{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     margin-right: 10px;
    }
@@ -117,15 +108,13 @@ header {
   }
 
   /* charts */
-.widget-container-full, 
-  .widget-container-half {
+.widget-container-full{
     width: 90vw;
     margin: 0 auto;
     }
 
-  /* line graph legend */
   ul{
-    text-align: right;
+    text-align: end;
     padding-right: 10px;
   }
 
@@ -140,6 +129,10 @@ header {
   li:hover {
     background-color: #78CF82;
     color: white;
+  }
+
+  .daily{
+    margin: 0 10px;
   }
 
 /* Socials, new Members and activities*/
@@ -231,7 +224,7 @@ header {
       margin-left:auto;
   }
 
-      /* message user */
+  /* message user */
   .form-field,
   .form-area{
     text-align: left;
@@ -262,7 +255,6 @@ header {
   .toggle p {
     display: inline-block;
     margin-bottom: 40px;
-
   }
 
   .onoffswitch{
@@ -293,4 +285,230 @@ header {
 
   button:focus {
     outline: none;
+  }
+
+@media(min-width: 768px) {
+  .grid-container {
+    grid-template-columns: 55px 1fr; 
+    grid-template-areas:
+    "header header"
+    "navigation main";
+  }
+
+  .main{
+    display: grid;
+    grid-template-columns: 50%;
+  }
+
+    /* main header */
+    header{
+      grid-area: header;
+    }
+
+    #memberLogin{
+      margin-left: 1%;
+    }
+
+    #memberLoginName{
+      display: inline-block;
+      margin-right: 1em;
+        color: white;
+    }
+    
+    .line {
+      margin: auto 0.8em;
+      padding: 1em 0;
+      border-right: 2px solid #5d61bf;
+      height: 10px;
+      opacity: 0.7;
+    }
+
+    /* nav bar */
+    nav {
+      flex-direction: column;
+      justify-content: flex-start;
+      
+    }
+
+    /* OpeningSearch */
+  #search {
+    justify-content: flex-end;
+    grid-column: 1 / span 2;
+  }
+
+  .search{
+    margin-bottom: 30px;
+    width: 300px;
+    height: 2em;
+  }
+
+  .search:focus{
+    outline: none;
+  }
+
+  .main-header-search{
+    padding-left:20%;
+    padding-top: 40px;
+    margin-right:0;
+    margin-bottom: 10px;
+  }
+
+  /*alert */
+  #alert{
+    padding-left: 10px;
+  }
+
+  /* charts */
+   .widget-container-half {
+  width: 45vw;
+  }
+
+  .daily {
+    border: 0.5px solid lightgrey;
+    grid-column: 1 / span 1;
+  }
+
+  .mobile {
+    border: 0.5px solid lightgrey;
+    grid-column: 2 / span 1;
+    margin-right: 10px;
+
+  }
+
+  /* social Media */
+  #social-heading{
+    margin-top: 20px;
+  }
+
+  .social{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .twitter{
+    flex-grow: 2;
+  }
+
+  .facebook{
+    flex-grow: 2;
+  }
+
+  .google{
+    flex-grow: 2;
+  }
+
+  .social-title,
+  .social-stat{
+    text-align: left;
+    padding-left: 100px;
+  }
+  
+    /* new members */
+  .members-container,
+  .activity-container{
+    border: none;
+  }
+
+  .members,
+  .message{
+    grid-column: 1 / span 1;
+  }
+
+  .activity,
+  .settings{
+    grid-column: 2 / span 1;
+  }
+
+    .members,
+    .activity{
+      border: lightgray;
+      border-style: solid;
+      border-width: 0.5px;
+      padding: 10px;
+      margin: o auto;
+    }
+
+    .members-text,
+    .activity-text{
+      font-size: 1em;
+    }
+
+    hr{
+      display: inline-block;
+      margin-top: 10px;
+      width: 95%;
+      border: lightgray solid 0.5px;
+    }
+
+    /* message user */
+    .message,
+    .settings{
+      border: lightgray solid 0.5px;
+    }
+
+    .form-field,
+    #send{
+      width: 90%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: lightgray;
+      border-style: solid;
+      border-width: 0.5px;
+    }
+
+    #send,
+    #save{
+      height: 2em;
+      background-color:#7377bf;
+      color: white;
+      text-transform: uppercase;
+    }
+    
+    .form-area{
+      height: 150px;
+      width: 90%;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: lightgray;
+      border-style: solid;
+      border-width: 0.5px;
+    }
+
+    /* Settings */
+   .settings p, 
+   .onoffswitch{
+     display: inline-block;
+   }
+   .onoffswitch{
+     float: right;
+     margin-right: 200px;
+   }
+   
+   .toggle{
+     margin-bottom: 20px;
+   }
+  
+    #save,
+    #cancel{
+      margin-bottom: 50px;
+      width: 45%;
+      border-radius: 5px;
+      border: lightgray solid 0.5px;
+      margin-top:0;
+    }
+
+    #cancel{
+      height: 2em;
+      background-color:grey;
+      color: white;
+      text-transform: uppercase;
+      margin-left: 20px;
+    }
+
+    .traffic,
+    .social,
+    #alert {
+      grid-column: 1 / span 2;
+    }
+
   }
