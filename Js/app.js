@@ -1,9 +1,3 @@
-const trafficCanvas = document.getElementById('traffic-chart');
-const dailyCanvas = document.getElementById('daily-chart');
-const mobileCanvas = document.getElementById('mobile-chart');
-const user = document.getElementById("userField");
-const message = document.getElementById("messageField");
-const send = document.getElementById("send");
 
 // ************** notifications **************************************
 const bell = document.getElementById('bell');
@@ -18,13 +12,9 @@ bell.addEventListener('click', (e) =>{
 
 gridContainer.addEventListener('click', (e) =>{
     if(e.target != bell){
-        notifications.style.display = 'none';
+        notifications.style.opacity = "0";
     } 
 });
-
-
-
-
 
 // ********************** alert *****************************************
 const alertBanner = document.getElementById('alert');
@@ -35,15 +25,16 @@ to complete</p>
 <p class="alert-banner-close">x</p>
 </div>`
 
-alertBanner.addEventListener('click', e => {
+alertBanner.addEventListener('click', (e) => {
     const close= e.target;
     if(close.classList.contains('alert-banner-close')){
-        alertBanner.style.display = 'none'
+        alertBanner.style.opacity = "0";
     }
 });
 
-
 // ************Traffic chart************************
+const trafficCanvas = document.getElementById('traffic-chart');
+
 let trafficData = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
     "4-10", "11-17", "18-24", "25-31"],
@@ -54,60 +45,53 @@ let trafficData = {
     }]
     };
 
-    let trafficOptions = {
-        aspectRatio: 2.5,
-        animation: {
-        duration: 0
-        },
-        scales: {
-        yAxes: [{
-        ticks: {
-        beginAtZero:true
-        }
-        }]
-        },
-        legend : {
-        display: false,
-        }
-        };
+        let trafficOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            aspectRatio: 2.5,
+            animation: {
+            duration: 0
+            },
+            scales: {
+            yAxes: [{
+            ticks: {
+            beginAtZero:true
+            }
+            }]
+            },
+            legend : {
+            display: false,
+            }
+            };
 
-let trafficChart = new Chart(trafficCanvas, {
-    type: 'line',
-    data: trafficData,
-    options: trafficOptions
-    });
+            let trafficChart = new Chart(trafficCanvas, {
+                type: 'line',
+                data: trafficData,
+                options: trafficOptions
+                })
 
-    let trafficData2 = {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
-        "4-10", "11-17", "18-24", "25-31"],
-        datasets: [{
-        data: [0, 800, 1300, 1500, 2000, 2500, 2000, 2250, 1560, 2250, 2500, 2250, 1700],
-        backgroundColor: 'rgba(116, 119, 191, .3)',
-        borderWidth: 1,
-        }]
-        };
+    function updateChart() {
+        trafficChart.data.datasets[0].data = [50, 80, 130, 100, 150, 200, 200, 225, 156, 225, 250, 225, 170]
+        trafficChart.update();
+    };
 
-    let trafficData3 = {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
-        "4-10", "11-17", "18-24", "25-31"],
-        datasets: [{
-        data: [0, 700, 1200, 905, 2000, 2500, 1000, 2250, 1500, 1250, 1750, 1250, 1750],
-        backgroundColor: 'rgba(116, 119, 191, .3)',
-        borderWidth: 1,
-        }]
-        };
+    function updateChart1() {
+        trafficChart.data.datasets[0].data = [100, 100, 80, 150, 250, 220, 320, 350, 380, 320, 200, 200, 140]
+        trafficChart.update();
+    };
 
-    let trafficData4 = {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3",
-        "4-10", "11-17", "18-24", "25-31"],
-        datasets: [{
-        data: [0, 900, 1350, 1200, 2300, 2500, 700, 1250, 2250, 1250, 2000, 1550, 1750],
-        backgroundColor: 'rgba(116, 119, 191, .3)',
-        borderWidth: 1,
-        }]
-        };
+    function updateChart2() {
+        trafficChart.data.datasets[0].data = [100, 900, 1350, 1200, 1600, 2000, 2700, 2500, 2250, 1800, 2500, 1550, 1750]
+        trafficChart.update();
+    };
+
+    function updateChart3() {
+        trafficChart.data.datasets[0].data = [800, 1500, 2000, 1555, 2000, 2300, 1800, 2250, 1500, 1550, 1750, 1250, 1750]
+        trafficChart.update();
+    };
     
 // ********* Daily ********************* 
+const dailyCanvas = document.getElementById('daily-chart');
 
 const dailyData = {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -118,18 +102,21 @@ const dailyData = {
     borderWidth: 1
     }]
     };
+    
     const dailyOptions = {
-    scales: {
-    yAxes: [{
-    ticks: {
-    beginAtZero:true
-    }
-    }]
-    },
-    legend : {
-    display: false
-    }
-    }
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+        yAxes: [{
+        ticks: {
+        beginAtZero:true
+        }
+        }]
+        },
+        legend : {
+        display: false
+        }
+        }
         
 let dailyChart = new Chart(dailyCanvas, {
     type: 'bar',
@@ -138,6 +125,8 @@ let dailyChart = new Chart(dailyCanvas, {
     });
 
 // **************** Mobile *****************
+const mobileCanvas = document.getElementById('mobile-chart');
+
 const mobileData = {
     labels: ["Desktop", "Tablet", "Phones"],
     datasets: [{
@@ -153,6 +142,8 @@ const mobileData = {
     };
 
 const mobileOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
     legend: {
     position: 'right',
     labels: {
@@ -197,6 +188,11 @@ if(searchMember === '') {
 });
 
 // ***********Message section***************************
+const user = document.getElementById("userField");
+const message = document.getElementById("messageField");
+const send = document.getElementById("send");
+const saveButton = document.getElementById("save");
+const cancelButton = document.getElementById("cancel");
 send.addEventListener('click', () => {
     // ensure user and message fields are filled out
     if (user.value === "" && message.value === "") {
@@ -213,8 +209,6 @@ send.addEventListener('click', () => {
 
 // **********************localStorage******************************
 const timezone = document.getElementById("timezone");
-const saveButton = document.getElementById("save");
-const cancelButton = document.getElementById("cancel");
 const switch1 = document.getElementById("myonoffswitch");
 const switch2 = document.getElementById("myonoffswitch1");
 const savingsMessage = document.getElementById("savings-message");

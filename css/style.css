@@ -21,6 +21,7 @@ h1, h2, h3{
   Padding-left: 10px;
 }
 
+
  /* main header */
 header {
     display: flex;
@@ -56,15 +57,35 @@ header {
     height: 10px;
     opacity: 0.7;
   }
-  .notifications-wrapper,
-   .main-header-search{
-    margin-left: auto;
-  }
 
   #bell {
     height: 30px;
-    cursor: pointer;
+    cursor: pointer;    
   }
+
+  #bell:hover{
+    animation-name: spin;
+    animation-duration: 1s;
+  }
+
+  @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+
+    }
+    50% {
+        transform: rotate(360deg) scale(2);
+    }
+
+    100%{
+      transform: scale(1);
+    }
+}
+
+.notifications-wrapper,
+.main-header-search{
+ margin-left: auto;
+}
 
   .notifications-wrapper{
     position: relative;
@@ -86,7 +107,7 @@ header {
     right:5px;
     border: black;
     opacity: 0;
-    transition: 2s opacity, 250ms height;
+    transition: 1s opacity, 250ms height;
     box-shadow: 0 4px 8px 0 black;
     background-color: #4d4b72
   }
@@ -131,7 +152,8 @@ header {
 
   .navImages {
     padding: 0.6em;
-    margin: 0.5em;
+    margin: 1.5em;
+    height:30px;
   }
 
   /* OpeningSearch */
@@ -140,6 +162,10 @@ header {
     align-items: center;
     margin-right: 20px;
    }
+   
+  .search:focus{
+    outline: none;
+  }
 
    /* alert */
   #alert{ 
@@ -147,11 +173,17 @@ header {
     color: white;
     border-radius: 5px;
     margin: 0 20px;
+    transition: 1s opacity, 250ms height;
+    box-shadow: 0 5px 3px 0 lightgray;
   }
 
   .alert-banner {
     display: flex;  
     justify-content: space-between;
+  }
+
+  .alert-banner p{
+    margin-left: 10px;
   }
 
   .alert-banner-close{
@@ -165,7 +197,8 @@ header {
   }
 
   /* charts */
-.widget-container-full{
+.widget-container-full,
+.widget-container-half{
     width: 90vw;
     margin: 0 auto;
     }
@@ -213,9 +246,7 @@ header {
 
   .twitter,
   .facebook,
-  .google,
-  .members-container,
-  .activity-container{
+  .google{
     border: lightgray solid 1px;
     border-radius: 10px;
     padding: 10px;
@@ -242,49 +273,73 @@ header {
   .members-container,
   .activity-container{
     display: flex;
-    text-align: left;
+    border: lightgray solid 1px;
+    border-radius: 10px;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .members,
+  .activity{
+    border: lightgray;
+    border-style: solid;
+    border-width: 0.5px;
+    padding: 10px;
   }
 
   .profile-image{
-    height: 85px;
+    height: 95px;
     border-radius: 50%;
+    margin-left: 0 auto;
+    margin-top: 5px;
   }
 
-  .members-text p,
-  a,
-  .activity-text p {
-    font-size: 1.5em;
-    margin-bottom: 0;
-    margin-left: 10px; 
-    margin-top: 0;   
+  .members-text,
+  .activity-text{
+    margin-left: 30px;
   }
 
-  a {
+  .activity-text .memberNames{
+    font-weight: normal;
+  }
+  
+  .memberNames{
+    font-weight: bold;
+    margin: 2px 0 10px 0;
+    font-size: 1.2em;
+  }
+
+  .members-text a {
     text-decoration: none;
   }
 
-  .date,
-  .time{
-    color: black;
-    padding-top: 30px;
+  .info{
+    color: gray;
+    margin-bottom:10px;
   }
+  
+.arrow{
+  color:#7377bf;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0 0 0 auto;
 
-  .arrow{
-    color:#7377bf;
-      font-weight: bold;
-      font-size: 2em;
-      margin-top: auto;
-      margin-left:auto;
-  }
+}
 
   /* message user */
+  .message,
+  .settings{
+    border: lightgray solid 0.5px;
+  }
+
   .form-field,
   .form-area{
     text-align: left;
-    width: 90%;
+    width: 95%;
     border: lightgray 1px solid;
-    border-width: 1px;
-    margin-left: 10px;
+    margin-left:13px;
+    margin-bottom: 10px;
     border-radius: 10px;
   }
 
@@ -316,11 +371,16 @@ header {
     color: white;
   }
 
-  #send,
-  #save{
-    height: 2em;
+  #send{
+    margin-left:15px;
     width: 95%;
-    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  #send,
+  #save,
+  #cancel{
+    height: 2em;
     border-radius: 10px;
     border: none;
     background-color:#7377bf;
@@ -332,6 +392,10 @@ header {
   .toggle {
     margin-left:10px;
     margin-right: 20px;
+  }
+
+  .settings h3{
+    margin-bottom: 5px;
   }
 
   .toggle p {
@@ -350,20 +414,12 @@ header {
 
   #save,
   #cancel{
-    margin-bottom: 40px;
+    margin: 10px 15px 40px;
     width: 45%;
-    border-radius: 5px;
-    border: lightgray solid 0.5px;
-    margin-top:10px;
   }
 
   #cancel{
-    height: 2em;
     background-color:grey;
-    color: white;
-    text-transform: uppercase;
-    margin-left: 10px;
-    margin-right: 20px;
   }
 
   button:focus {
@@ -378,15 +434,16 @@ header {
 
 @media(min-width: 768px) {
   .grid-container {
-    grid-template-columns: 80px 1fr; 
+    grid-template-columns: 100px 95%; 
     grid-template-areas:
     "header header"
     "navigation main";
   }
 
   .main{
-    display: grid;
-    grid-template-columns: 50%;
+      display: grid;
+      grid-auto-columns: 46%;
+
   }
 
     /* main header */
@@ -400,86 +457,70 @@ header {
 
     #memberLoginName{
       display: inline-block;
-      margin-right: 5%;
-      color: white;
+      margin-right: 10%;
     }
-    
-    .line {
-      margin: auto 0.8em;
-      padding: 1em 0;
-      border-right: 2px solid #5d61bf;
-      height: 10px;
-      opacity: 0.7;
-    }
-
+ 
     /* nav bar */
     nav {
       flex-direction: column;
       justify-content: flex-start; 
-      align-items: center; 
-    }
-
-     a {
-       margin: 0 auto;
-       padding: 0;
-    } 
-
-    .navImages{
-      /* max-width: 80%; */
-      margin-right: 800px;
-      padding: 0.6em;
-      
     }
 
     /* OpeningSearch */
-  #search {
+    #search{
+      grid-column: 1 / span 2;
+    }
+
+  .main-header-search{
     justify-content: flex-end;
-    grid-column: 1 / span 2;
-    margin-right: 5%;
+    padding-top: 40px;
+    margin-bottom: 10px;
   }
 
   .search{
     margin-bottom: 30px;
     width: 300px;
     height: 2em;
-  }
-
-  .search:focus{
-    outline: none;
-  }
-
-  .main-header-search{
-    padding-left:20%;
-    padding-top: 40px;
-    margin-right:0;
-    margin-bottom: 10px;
+    margin-left: 25px;
   }
 
   /*alert */
-  #alert{
-    padding-left: 10px;
-    margin-right: 5%;
+#alert{
+  grid-column: 1 / span 2;
+}
+
+  .alert-banner-close{
+    justify-items: right;
   }
 
   /* charts */
 
-  ul{
-    margin-right: 5%;
-  }
-   .widget-container-half {
-  width: 45vw;
+.widget-container-full{
+  width:100%;
+  height: 80vh;
+  margin-left:10px;
+}
+
+  .widget-container-half {
+      width: 100%;
+      margin: 0;
   }
 
   .daily {
     border: 0.5px solid lightgrey;
     grid-column: 1 / span 1;
+    margin-right:10px;
   }
 
   .mobile {
     border: 0.5px solid lightgrey;
     grid-column: 2 / span 1;
-    margin-right: 10px;
+  }
 
+  
+  .traffic,
+  .social {
+    grid-column: 1 / span 2;
   }
 
   /* social Media */
@@ -487,132 +528,84 @@ header {
     margin-top: 20px;
   }
 
-  .social{
-    display: flex;
-    justify-content: space-evenly;
+  svg{
+    height: 40px;
+    padding: 15px;
   }
 
-  .twitter{
-    flex-grow: 2;
+  .social-title {
+    font-size: 1.5em;
   }
 
-  .facebook{
-    flex-grow: 2;
-  }
-
-  .google{
-    flex-grow: 2;
+  .social-stat{
+    font-size:2em;
   }
 
   .social-title,
   .social-stat{
     text-align: left;
-    padding-left: 100px;
+    padding-left: 90px;
+    margin-right: 1rem;
   }
-  
-    /* new members */
+
+  .social{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+
+    /* new members & activity */
   .members-container,
   .activity-container{
     border: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .members,
-  .message{
-    grid-column: 1 / span 1;
+  .members h3,
+  .activity h3{
+    margin: 0 0 20px;
   }
 
-  .activity,
-  .settings{
-    grid-column: 2 / span 1;
+  .profile-image{
+    height: 75px;
   }
 
-    .members,
-    .activity{
-      border: lightgray;
-      border-style: solid;
-      border-width: 0.5px;
-      padding: 10px;
-      margin: o auto;
-    }
+  .members-text,
+  .activity-text{
+    margin-left: 10px;
+}
 
-    .members-text,
-    .activity-text{
-      font-size: 1em;
-    }
+.arrow{
+margin-bottom: auto;
+}
 
-    .members-text a{
-      font-size: 1em;
-      margin-left: 15px
-    }
+  hr{
+    display: inline-block;
+    margin-top: 10px;
+    width: 95%;
+    border: lightgray solid 0.5px;
+  }
 
-    hr{
-      display: inline-block;
-      margin-top: 10px;
-      width: 95%;
-      border: lightgray solid 0.5px;
-    }
-
-    /* message user */
-    .message,
-    .settings{
-      border: lightgray solid 0.5px;
-    }
-
-    .form-field,
-    #send{
-      width: 90%;
-      margin-bottom: 10px;
-    }
-
-    #send,
-    #save{
-      height: 2em;
-      background-color:#7377bf;
-      color: white;
-      text-transform: uppercase;
-    }
-    
-    .form-area{
-      height: 150px;
-      width: 90%;
-      margin-bottom: 10px;
-    }
-
-    /* Settings */
-   .settings p, 
-   .onoffswitch{
-     display: inline-block;
-   }
-   .onoffswitch{
-     float: right;
-     margin-right: 200px;
-   }
-   
-   .toggle{
-     margin-bottom: 20px;
-   }
+  /* message user */
+  .form-field,
+  #send{
+    width: 90%;
+    margin-bottom: 10px;
+  }
   
-    #save,
-    #cancel{
-      margin-bottom: 50px;
-      width: 45%;
-      border-radius: 5px;
-      border: lightgray solid 0.5px;
-      margin-top:0;
-    }
-
-    #cancel{
-      height: 2em;
-      background-color:grey;
-      color: white;
-      text-transform: uppercase;
-      margin-left: 20px;
-    }
-
-    .traffic,
-    .social,
-    #alert {
-      grid-column: 1 / span 2;
-    }
-
+  .form-area{
+    height: 150px;
+    width: 90%;
   }
+
+  #save {
+    margin-left: 15px;
+    width: 40%;
+  }
+
+  #cancel{
+    margin: 0;
+  }
+
+}
