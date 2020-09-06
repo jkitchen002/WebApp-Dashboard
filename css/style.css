@@ -18,7 +18,7 @@ html, body {
 
 /* headings */
 h1, h2, h3{
-  Padding-left: 10px;
+  padding-left: 10px;
 }
 
 
@@ -160,7 +160,6 @@ header {
    #search{
     display: flex;
     align-items: center;
-    margin-right: 20px;
    }
    
   .search:focus{
@@ -172,7 +171,6 @@ header {
     background-color: #7377bf;
     color: white;
     border-radius: 5px;
-    margin: 0 20px;
     transition: 1s opacity, 250ms height;
     box-shadow: 0 5px 3px 0 lightgray;
   }
@@ -199,8 +197,10 @@ header {
   /* charts */
 .widget-container-full,
 .widget-container-half{
-    width: 90vw;
-    margin: 0 auto;
+    position: relative; 
+    height:25vh; 
+    width:90vw;
+    margin: auto;
     }
 
   ul{
@@ -414,8 +414,8 @@ header {
 
   #save,
   #cancel{
-    margin: 10px 15px 40px;
-    width: 45%;
+    margin: 10px 15px 40px 25px;
+    width: 42%;
   }
 
   #cancel{
@@ -443,7 +443,6 @@ header {
   .main{
       display: grid;
       grid-auto-columns: 46%;
-
   }
 
     /* main header */
@@ -469,6 +468,7 @@ header {
     /* OpeningSearch */
     #search{
       grid-column: 1 / span 2;
+      margin-right: 20px;
     }
 
   .main-header-search{
@@ -487,6 +487,7 @@ header {
   /*alert */
 #alert{
   grid-column: 1 / span 2;
+      margin: 0 20px;
 }
 
   .alert-banner-close{
@@ -496,20 +497,21 @@ header {
   /* charts */
 
 .widget-container-full{
-  width:100%;
-  height: 80vh;
-  margin-left:10px;
+  width:90%;
+  height: 35vh;
 }
 
   .widget-container-half {
-      width: 100%;
-      margin: 0;
+    height:25vh; 
+    width:35vw;
+    padding-bottom: 20px;
   }
 
   .daily {
     border: 0.5px solid lightgrey;
     grid-column: 1 / span 1;
     margin-right:10px;
+    /* height: 80vh; */
   }
 
   .mobile {
@@ -552,6 +554,12 @@ header {
     display: flex;
     margin-bottom: 20px;
     justify-content: space-between;
+  }
+
+  .twitter,
+  .facebook,
+  .google{
+    flex-grow: 1;
   }
 
     /* new members & activity */
@@ -606,6 +614,31 @@ margin-bottom: auto;
 
   #cancel{
     margin: 0;
+  }
+}
+
+@media(min-width: 1024px) {
+  h1, h2, h3{
+    padding-left: 20px;
+  }
+
+  .main{
+    grid-auto-columns: 48%;
+  }
+
+  #memberLoginName{
+    margin-right: 5%;
+  }
+
+  .widget-container-full{
+    width:95%;
+    height: 45vh;
+  }
+
+  .widget-container-half {
+    height:45vh; 
+    width:35vw;
+    padding-bottom: 20px;
   }
 
 }
