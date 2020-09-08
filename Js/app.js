@@ -212,11 +212,27 @@ const profile = document.getElementById("myonoffswitch");
 const email = document.getElementById("myonoffswitch1");
 const savingsMessage = document.getElementById("savings-message");
 
+function loadStored() {
+    if (localStorage.length !== 0) {
+    let emailSettings = localStorage.getItem('email');
+    let profileSettings = localStorage.getItem('profile');
+    let timeZoneSettings = localStorage.getItem('timezone');
+    
+    email.checked = JSON.parse(emailSettings);
+    profile.checked = JSON.parse(profileSettings);
+    timezone.value = timeZoneSettings;
+ } else {
+    email.checked = JSON.parse(false);
+    profile.checked = JSON.parse(false);
+    timezone.value = 'Select Timezone';
+ }
+}
+
 save.addEventListener("click", () => {
-  localStorage.setItem("timezone", JSON.stringify(timezone.value));
-  localStorage.setItem("email", JSON.stringify(email.checked));
-  localStorage.setItem("profile", JSON.stringify(profile.checked));
-  savingsMessage.innerHTML = "Your settings have been saved!";
+    localStorage.setItem("email", email.checked);
+    localStorage.setItem("profile", profile.checked);
+    localStorage.setItem('timezone', timezone.value);
+    savingsMessage.innerHTML = "Your settings have been saved!";
 });
 
 cancel.addEventListener("click", () => {
@@ -228,8 +244,17 @@ cancel.addEventListener("click", () => {
 })
 
  function loadStored() {
-    localStorage.getItem('email', JSON.parse(email.checked));
-    localStorage.getItem('profile', JSON.parse(profile.checked));
-    localStorage.getItem('timezone', JSON.parse(timezone.value));
+    if (localStorage) {
+    let emailSettings = localStorage.getItem('email');
+    let profileSettings = localStorage.getItem('profile');
+    let timeZoneSettings = localStorage.getItem('timezone');
+    
+    email.checked = JSON.parse(emailSettings);
+    profile.checked = JSON.parse(profileSettings);
+    timezone.value = timeZoneSettings;
+ } else {
+    email.checked = JSON.parse(false);
+    profile.checked = JSON.parse(false);
+    timezone.value = 'Select Timezone';
  }
-
+}
