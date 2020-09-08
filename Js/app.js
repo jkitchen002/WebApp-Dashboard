@@ -1,4 +1,3 @@
-
 // ************** notifications **************************************
 const bell = document.getElementById('bell');
 const notifications = document.querySelector('.notification-box');
@@ -209,21 +208,28 @@ send.addEventListener('click', () => {
 
 // **********************localStorage******************************
 const timezone = document.getElementById("timezone");
-const switch1 = document.getElementById("myonoffswitch");
-const switch2 = document.getElementById("myonoffswitch1");
+const profile = document.getElementById("myonoffswitch");
+const email = document.getElementById("myonoffswitch1");
 const savingsMessage = document.getElementById("savings-message");
 
-save.addEventListener("click", function () {
-  localStorage.setItem("timezone", timezone.value);
-  localStorage.setItem("switch1", switch1.checked);
-  localStorage.setItem("switch2", switch2.checked);
+save.addEventListener("click", () => {
+  localStorage.setItem("timezone", JSON.stringify(timezone.value));
+  localStorage.setItem("email", JSON.stringify(email.checked));
+  localStorage.setItem("profile", JSON.stringify(profile.checked));
   savingsMessage.innerHTML = "Your settings have been saved!";
 });
 
-cancel.addEventListener("click", function () {
+cancel.addEventListener("click", () => {
   localStorage.clear();
   timezone.value = "";
-  switch1.checked = false;
-  switch2.checked = false;
+  email.checked = false;
+  profile.checked = false;
   savingsMessage.innerHTML= "Your settings have been canceled!";
 })
+
+ function loadStored() {
+    localStorage.getItem('email', JSON.parse(email.checked));
+    localStorage.getItem('profile', JSON.parse(profile.checked));
+    localStorage.getItem('timezone', JSON.parse(timezone.value));
+ }
+
