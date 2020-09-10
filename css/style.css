@@ -275,9 +275,13 @@ header {
     display: flex;
     border: lightgray solid 1px;
     border-radius: 10px;
-    height: 110px;
+    height: 135px;
     margin: 10px;
     padding: 10px;
+  }
+
+  .activity-container{
+    height: 180px;  
   }
 
   .members,
@@ -312,11 +316,11 @@ header {
 
   .members-text a {
     text-decoration: none;
+    word-break:break-all;
   }
 
   .info{
     color: gray;
-    margin-bottom:10px;
   }
   
 .arrow{
@@ -356,6 +360,11 @@ header {
   .suggestions{
     width: 93%;
     padding-left: 10px;
+    display: none;
+  }
+
+  .suggestions.show{
+    display: block;
   }
 
   .suggestions div {
@@ -414,12 +423,13 @@ header {
 
   #save,
   #cancel{
-    margin: 10px 15px 40px 25px;
+    margin: 10px 15px 40px 15px;
     width: 42%;
   }
 
   #cancel{
     background-color:grey;
+    margin-left: 0;
   }
 
   button:focus {
@@ -568,6 +578,7 @@ header {
     border: none;
     margin: 0;
     padding: 0;
+    height: 110px;
   }
 
   .members h3,
