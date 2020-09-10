@@ -171,7 +171,7 @@ header {
     background-color: #7377bf;
     color: white;
     border-radius: 5px;
-    transition: 1s opacity, 250ms height;
+    transition: 1s opacity, 2500ms height;
     box-shadow: 0 5px 3px 0 lightgray;
   }
 
@@ -284,7 +284,7 @@ header {
     height: 180px;  
   }
 
-  .members,
+  #members,
   .activity{
     border: lightgray;
     border-style: solid;
@@ -358,9 +358,11 @@ header {
   }
 
   .suggestions{
-    width: 93%;
-    padding-left: 10px;
+    width: 91%;
+    margin-left: 10px;
     display: none;
+    box-shadow: 0 5px 3px 0 lightgray;
+    border-radius: 5px;
   }
 
   .suggestions.show{
@@ -395,6 +397,7 @@ header {
     background-color:#7377bf;
     color: white;
     text-transform: uppercase;
+    box-shadow: 0 5px 3px 0 lightgray;
   }
     
   /* Settings */
@@ -528,7 +531,6 @@ header {
     border: 0.5px solid lightgrey;
     grid-column: 2 / span 1;
   }
-
   
   .traffic,
   .social {
@@ -595,9 +597,9 @@ header {
     margin-left: 10px;
 }
 
-.arrow{
-margin-bottom: auto;
-}
+  .arrow{
+  margin-bottom: auto;
+  }
 
   hr{
     display: inline-block;
