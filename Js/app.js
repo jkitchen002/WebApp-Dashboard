@@ -169,6 +169,7 @@ let members = [
 ];
 
 searchBar.addEventListener('keyup', (e) => {
+    suggestionsPanel.classList.add('show')
     const searchMember = e.target.value;
     suggestionsPanel.innerHTML = '';
     const filteredMembers = members.filter( members => {
@@ -179,12 +180,22 @@ searchBar.addEventListener('keyup', (e) => {
     filteredMembers.forEach (function(suggested){
         const div = document.createElement('div');
         div.innerHTML = suggested.name;
+        div.setAttribute('class', 'suggestion');
         suggestionsPanel.appendChild(div);
     });
 if(searchMember === '') {
     suggestionsPanel.innerHTML = "";
 }
 });
+
+document.addEventListener('click', (e) => {
+    if(e.target.className === 'suggestion') {
+        searchBar.value = e.target.innerHTML;
+        suggestionsPanel.classList.remove('show')
+    }
+});
+
+
 
 // ***********Message section***************************
 const user = document.getElementById("userField");
