@@ -1,4 +1,5 @@
 // ************** notifications **************************************
+console.log('hi');
 const bell = document.getElementById('bell');
 const notifications = document.querySelector('.notification-box');
 const gridContainer = document.querySelector('.grid-container');
